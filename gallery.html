@@ -285,8 +285,9 @@
     if (item.type === 'video'){
       const v = document.createElement('video');
       v.src = VID_DIR + encodeURIComponent(item.base) + '.' + item.ext[0];
-      v.controls = true; v.autoplay = true; v.loop = true;
+      v.controls = true; v.autoplay = true; v.loop = true; v.muted = true; v.playsInline = true;
       lbMedia.appendChild(v);
+      v.play().catch(()=>{});
     } else {
       const img = document.createElement('img');
       let i = 0;
